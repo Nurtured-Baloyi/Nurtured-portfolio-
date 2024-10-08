@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <title>Portfolio website - About</title>
+
+    <style>
+        /* Blue button style similar to other pages */
+        .edit-button {
+            padding: 10px;
+            background-color: #007BFF; /* Blue color */
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-family: 'Poppins', sans-serif; /* Ensure consistent font */
+        }
+        .edit-button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        /* Styling for the about text area */
+        .about__text {
+            width: 100%;
+            height: 150px;
+            padding: 10px;
+            border: 2px solid #007BFF; /* Professional blue border */
+            border-radius: 8px;
+            background-color: #f9f9f9; /* Light background for a clean look */
+            font-family: 'Poppins', sans-serif; /* Same font as other text */
+            font-size: 16px; /* Match text size */
+            color: #333; /* Ensure text is readable */
+            resize: none; /* Disable resizing for consistent look */
+        }
+
+        .about__container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for professional look */
+            border-radius: 10px;
+            background-color: #fff; /* Clean white background */
+        }
+
+        .about__subtitle {
+            font-family: 'Poppins', sans-serif; /* Ensure the subtitle uses the same font */
+            font-size: 24px;
+            color: #007BFF; /* Match with blue theme */
+            margin-bottom: 10px;
+        }
+
+        /* Add responsive menu styles */
+        .nav__menu {
+            display: none; /* Initially hidden */
+        }
+        .nav__menu.show {
+            display: block; /* Show when class 'show' is added */
+        }
+
+        @media (min-width: 768px) {
+            .nav__menu {
+                display: block; /* Show on larger screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="l-header">
+        <nav class="nav bd-grid">
+            <div>
+                <a href="index.html" class="nav__logo">Nurtured</a>
+            </div>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="about.html" class="nav__link active-link">About</a></li>
+                    <li class="nav__item"><a href="skills.html" class="nav__link">Skills</a></li>
+                    <li class="nav__item"><a href="work.html" class="nav__link">Work Experience</a></li>
+                    <li class="nav__item"><a href="contact.html" class="nav__link">Contact</a></li>
+                </ul>
+            </div>
+            <div class="nav__toggle" id="nav-toggle">
+                <i class='bx bx-menu'></i>
+            </div>
+        </nav>
+    </header>
+
+    <section class="about section" id="about">
+        <h2 class="section-title">About</h2>
+        <div class="about__container bd-grid" id="profile-container">
+            <div>
+                <h2 class="about__subtitle">I am Nurtured</h2>
+                <textarea class="about__text" id="about-text" disabled>I am a driven, hardworking student passionate about working in Cyber Security and Software Development...</textarea>
+                <button class="edit-button" onclick="toggleEdit()">Edit</button>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/scrollreveal"></script> 
+    <script src="assets/js/main.js"></script> 
+
+    <script>
+        // Function to toggle between editing and saving the about information
+        function toggleEdit() {
+            const aboutText = document.getElementById('about-text');
+            const editButton = document.querySelector('.edit-button');
+
+            if (aboutText.disabled) {
+                aboutText.disabled = false;
+                aboutText.focus(); // Focus the textarea for editing
+                editButton.textContent = 'Save';
+            } else {
+                aboutText.disabled = true;
+                editButton.textContent = 'Edit';
+                // Logic to save the edited text can be added here
+            }
+        }
+
+        // Mobile menu toggle function
+        const showMenu = (toggleId, navId) => {
+            const toggle = document.getElementById(toggleId),
+                nav = document.getElementById(navId);
+
+            if (toggle && nav) {
+                toggle.addEventListener('click', () => {
+                    nav.classList.toggle('show'); // Use 'show' class
+                });
+            }
+        };
+        showMenu('nav-toggle', 'nav-menu');
+
+        // Close the mobile menu after clicking a link
+        const navLink = document.querySelectorAll('.nav__link');
+
+        function linkAction() {
+            const navMenu = document.getElementById('nav-menu');
+            // When we click on each nav__link, we remove the 'show' class
+            navMenu.classList.remove('show');
+        }
+        navLink.forEach((n) => n.addEventListener('click', linkAction));
+    </script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'> 
+    <title>Portfolio Website - Work Experience</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Use a clean font for professionalism */
+            line-height: 1.6; /* Increase line height for readability */
+            margin: 0;
+            padding: 20px; /* Added padding for overall body */
+            background-color: #f9f9f9; /* Light background color for contrast */
+        }
+
+        .edit-button {
+            background-color: #007BFF; /* Use a professional blue color */
+            color: white;
+            padding: 10px 20px; /* Increased button size for better clickability */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 16px; /* Adjusted font size */
+            text-align: center;
+            transition: background-color 0.3s; /* Smooth transition for hover effect */
+        }
+
+        .edit-button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        .work__text {
+            width: 100%; /* Set to full width of the parent */
+            height: auto; /* Set height to auto for flexibility */
+            padding: 20px; /* Increased padding for better readability */
+            border: 1px solid #ccc; /* Add a border for visibility */
+            border-radius: 5px; /* Slightly round corners */
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+            resize: vertical; /* Allow vertical resizing */
+            font-size: 18px; /* Increase font size for better readability */
+            max-width: 800px; /* Limit maximum width for better layout */
+            margin-bottom: 20px; /* Space between the paragraph and button */
+            background-color: #fff; /* White background for text area */
+        }
+
+        /* Responsive design for mobile */
+        @media (max-width: 600px) {
+            .edit-button {
+                width: auto; /* Remove full width for mobile */
+                padding: 10px;
+                font-size: 14px; /* Slightly smaller font size on mobile */
+            }
+
+            .work__text {
+                height: auto; /* Keep height auto for mobile */
+                font-size: 16px; /* Slightly smaller font size on mobile */
+            }
+        }
+    </style>
+</head> 
+<body> 
+    <header class="l-header">  
+        <nav class="nav bd-grid"> 
+            <div> 
+                <a href="index.html" class="nav__logo">Nurtured</a> 
+            </div> 
+            <div class="nav__menu" id="nav-menu"> 
+                <ul class="nav__list"> 
+                    <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li> 
+                    <li class="nav__item"><a href="about.html" class="nav__link">About</a></li> 
+                    <li class="nav__item"><a href="skills.html" class="nav__link">Skills</a></li> 
+                    <li class="nav__item"><a href="work.html" class="nav__link active-link">Work Experience</a></li> 
+                    <li class="nav__item"><a href="contact.html" class="nav__link">Contact</a></li> 
+                </ul> 
+            </div> 
+            <div class="nav__toggle" id="nav-toggle"> 
+                <i class='bx bx-menu'></i> 
+            </div> 
+        </nav>  
+    </header>
+
+    <section class="work section" id="work"> 
+        <h2 class="section-title">Work Experience</h2> 
+        <div class="work__container bd-grid"> 
+            <div> 
+                <h2 class="work__subtitle"></h2> 
+                <p id="editableParagraph" class="work__text" contenteditable="false">I worked as a software development intern, gaining hands-on experience with full-stack web development, including both frontend and backend technologies...</p> 
+                <button class="edit-button" id="editButton" onclick="toggleEdit()">Edit</button>
+            </div> 
+        </div> 
+    </section>
+
+    <script src="https://unpkg.com/scrollreveal"></script> 
+    <script src="assets/js/main.js"></script>
+    <script>
+        function toggleEdit() {
+            const paragraph = document.getElementById('editableParagraph');
+            const button = document.getElementById('editButton');
+
+            if (paragraph.isContentEditable) {
+                paragraph.contentEditable = "false";
+                button.textContent = "Edit"; // Change button text to "Edit"
+            } else {
+                paragraph.contentEditable = "true";
+                paragraph.focus();  // Bring the paragraph into focus when editable
+                button.textContent = "Save"; // Change button text to "Save"
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'> 
+    <title>Portfolio website - Skills</title>
+
+    <style>
+        /* Style the editable textarea to match the rest of the design */
+        .skills__text {
+            width: 100%;
+            height: 300px; /* Increased height */
+            padding: 10px;
+            border: 2px solid #007BFF; /* Blue border */
+            border-radius: 8px;
+            background-color: #f9f9f9; /* Light background */
+            font-family: 'Poppins', sans-serif; /* Matching font */
+            font-size: 16px;
+            color: #333;
+            resize: none; /* Disable resizing */
+        }
+        
+        .edit-button {
+            padding: 10px;
+            background-color: #007BFF; /* Blue color */
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-family: 'Poppins', sans-serif; /* Ensure consistent font */
+        }
+        .edit-button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+    <header class="l-header"> 
+        <nav class="nav bd-grid"> 
+            <div> 
+                <a href="index.html" class="nav__logo">Nurtured</a> 
+            </div> 
+            <div class="nav__menu" id="nav-menu"> 
+                <ul class="nav__list"> 
+                    <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li> 
+                    <li class="nav__item"><a href="about.html" class="nav__link">About</a></li> 
+                    <li class="nav__item"><a href="skills.html" class="nav__link active-link">Skills</a></li> 
+                    <li class="nav__item"><a href="work.html" class="nav__link">Work Experience</a></li> 
+                    <li class="nav__item"><a href="contact.html" class="nav__link">Contact</a></li> 
+                </ul> 
+            </div> 
+            <div class="nav__toggle" id="nav-toggle"> 
+                <i class='bx bx-menu'></i> 
+            </div> 
+        </nav>  
+    </header>
+
+    <section class="skills section" id="skills"> 
+        <h2 class="section-title">Skills</h2> 
+        <link rel="stylesheet" href="assets/css/styles.css"> 
+        <div class="skills__container bd-grid">           
+            <div> 
+                <h2 class="skills__subtitle">Professional Skills</h2> 
+                
+                <!-- Editable paragraph using textarea -->
+                <textarea class="skills__text" id="skills-text" disabled>With a strong proficiency in Microsoft Office Suite, including Word, Excel, PowerPoint, and Outlook, I also bring programming experience in various languages, which I have been learning since 2023. Additionally, I am a dedicated instrumentalist and actively involved in church activities. More information is in the linked document.</textarea>
+                
+                <button class="edit-button" onclick="toggleEdit()">Edit</button> <!-- Button to enable/disable editing -->
+
+                <!-- Skills bars -->
+               
+            
+            <div>              
+                <img src="assets/img/work3.jpg" alt="" class="skills__img">
+            </div>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/scrollreveal"></script> 
+    <script src="assets/js/main.js"></script>
+
+    <script>
+        // Function to toggle between editing and saving the skills paragraph
+        function toggleEdit() {
+            const skillsText = document.getElementById('skills-text');
+            const editButton = document.querySelector('.edit-button');
+
+            if (skillsText.disabled) {
+                skillsText.disabled = false; // Enable the textarea
+                skillsText.focus(); // Focus the textarea for editing
+                editButton.textContent = 'Save'; // Change button text to "Save"
+            } else {
+                skillsText.disabled = true; // Disable the textarea
+                editButton.textContent = 'Edit'; // Change button text to "Edit"
+                // Logic to save the edited text can be added here, e.g., sending it to a server
+            }
+        }
+    </script>
+</body>
+</html>
